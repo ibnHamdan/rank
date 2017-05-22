@@ -1,0 +1,20 @@
+{
+  "name": "rank",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "ibnHamdan <ibnHamdan@msn.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ibnHamdan/rank",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "foundation-sites": "^6.3.1"
+  }
+}
