@@ -1,25 +1,20 @@
 <div class="row">
-    {{#each articles}}
-    <div class="small-4 columns">
-        <div class="card-article-hover card">
-            <a href="">
-    <img src="https://unsplash.it/600/400">
-  </a>
-            <div class="card-section">
-                <p class="meta-data article-subtext">{{this.created}}</p>
-                <a href="">
-                    <h3 class="article-title">{{this.subject}}</h3>
-                </a>
-                <p class="article-desc">{{this.content}}</p>
+    <div class="small-6 meduime-4 columns">
+        <div class="article-card">
+            <div class="article-image">
+                <img src="" alt="">
+                <span class="label card-tag"></span>
             </div>
-            <div class="card-divider flex-container align-middle">
-                <img class="avatar" src="http://placehold.it/50x50" alt="avatar">
-                <a href="" class="author">BEAN MCGRUBER</a>
+            <div class="aticle-section">
+                <div class="aticle-title">Article Title</div>
+                <div class="article-content">
+                    <spna class="created">Monday</spna>
+                </div>
+                <p class="article-content">Article Contetn</p>
             </div>
-            <div class="hover-border">
+            <div class="card-action">
+                <i class="fa fa-heart-o"></i>
             </div>
         </div>
-
     </div>
-    {{/each}}
 </div>
