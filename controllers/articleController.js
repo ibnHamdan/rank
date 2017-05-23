@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Article = mongoose.model('Article');
+const db = require('../db');
 
 
 exports.index = (req, res) => {
@@ -10,17 +9,24 @@ exports.add = (req, res) => {
     res.render('add');
 }
 
-exports.addArticle = async (req, res) => {
-    (await (new Article(req.body)).save());
+exports.addArticle =  (req, res) => {
+    db.connection.connect();
+    db.connection.query('insert into articles set ?', req.body, function(err, result) {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log(result)
+    })
     res.redirect('/');
 }
 
-exports.getArticle = async(req, res) => {
-    const articlePromise = Article.find();
-    const countPromise = Article.count();
+exports.getArticle = /*async*/(req, res) => {
+    //const articlePromise = Article.find();
+    //const countPromise = Article.count();
 
-    const [articles , count] = await Promise.all([articlePromise, countPromise]);
+    //const [articles , count] = await Promise.all([articlePromise, countPromise]);
     
 
-    res.render('index', {articles, count})
+    res.render('index')
 }

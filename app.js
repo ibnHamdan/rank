@@ -9,21 +9,15 @@ const flash = require('express-flash');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const exphbs = require('express-handlebars');
-const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(session);
+const db = require('./db');
+
 
 // import envirnoment variables from .env file
 dotenv.config({ path: '.env'});
 
-//connect to Database
-mongoose.connect(process.env.DATABASE);
-mongoose.Promise = global.Promise;
-mongoose.connection.on('error', (err) => {
-    console.error('Mongodb connection Error' + `${err.message}`);
-});
 
-//import all of models
-require('./models/Article');
+// connect to Database
+
 
 
 //Stat app
@@ -31,7 +25,7 @@ const app = express();
 
 app.set('port', process.env.PORT || 5555 );
 app.listen(app.get('port'), () => {
-  console.log(`Express running → PORT 5555`);
+  console.log('Express running → PORT 5555');
 });
 
 
@@ -59,7 +53,7 @@ app.use(session({
     key: process.env.KEY,
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
+    //store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 // The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests

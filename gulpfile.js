@@ -7,13 +7,12 @@ const sass = require('gulp-sass');
 const babel = require('gulp-babel');
 
 gulp.task('browser-sync', () => {
-    browserSync({
-        proxy: "localhost:5555",
+    browserSync.init(null,{
+        proxy: "http://localhost:5555",
         port: 4444,
-        notify: true
+        //notify: true
     });
 });
-
 
 gulp.task('sass', () => {
     return gulp.src('./assets/scss/app.scss')
