@@ -3844,7 +3844,8 @@ a.thumbnail {
     height: 3.125rem;
     background: #24292e; }
     .header .menu-centered li:hover {
-      background: #fefefe; }
+      border: 1px solid #fefefe;
+      border-radius: 10px; }
     .header .menu-centered a {
       color: #fefefe;
       line-height: 1.5; }

@@ -9,24 +9,21 @@ exports.add = (req, res) => {
     res.render('add');
 }
 
-exports.addArticle =  (req, res) => {
-    db.connection.connect();
+exports.addArticle =   (req, res) => {
     db.connection.query('insert into articles set ?', req.body, function(err, result) {
         if (err) {
             console.error(err);
             return;
         }
-        console.log(result)
+        console.log(result);
     })
     res.redirect('/');
 }
 
-exports.getArticle = /*async*/(req, res) => {
-    //const articlePromise = Article.find();
-    //const countPromise = Article.count();
-
-    //const [articles , count] = await Promise.all([articlePromise, countPromise]);
-    
-
-    res.render('index')
+exports.getArticle = (req, res) => {
+    db.connection.query('select * from articles', function(err, result) {
+         res.render('index', {result});
+    });
+   
+    //res.render('index');
 }

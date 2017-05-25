@@ -1,20 +1,22 @@
 <div class="row">
-    <div class="small-6 meduime-4 columns">
+    {{#each result}}
+    <div class="small-6 medium-4 columns">
         <div class="article-card">
             <div class="article-image">
                 <img src="" alt="">
                 <span class="label card-tag"></span>
             </div>
             <div class="aticle-section">
-                <div class="aticle-title">Article Title</div>
+                <div class="aticle-title">{{this.title}}</div>
                 <div class="article-content">
-                    <spna class="created">day</spna>
+                    <spna class="created">{{this.id}}</spna>
                 </div>
-                <p class="article-content">Article Contetn</p>
+                <p class="article-content">{{this.body}}</p>
             </div>
             <div class="card-action">
                 <i class="fa fa-heart-o"></i>
             </div>
         </div>
     </div>
+    {{/each}}
 </div>
