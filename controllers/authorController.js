@@ -12,7 +12,7 @@ exports.register = (req, res) => {
         "password": req.body.password,
         "creted": new Date()
     }
-    db.connection.query('insert int authors set ?', req.body , )
+    db.connection.query('insert int authors set ?', req.body)
 }
 
 exports.login = (req, res) => {

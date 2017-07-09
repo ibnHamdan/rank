@@ -3834,9 +3834,13 @@ a.thumbnail {
   color: #fefefe;
   text-align: center;
   background-color: #3a434b; }
+  .header svg {
+    width: 15.625rem;
+    height: 12.5rem;
+    margin-top: 0.3125rem; }
   .header .title {
     vertical-align: middle;
-    line-height: 15.625rem; }
+    line-height: 2.8125rem; }
   .header .menu-centered {
     position: absolute;
     bottom: 0;

@@ -10,6 +10,6 @@ const mysql = require('mysql');
 exports.connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "a0540002507",
+    password: "1412",
     database: "rank"
 });
