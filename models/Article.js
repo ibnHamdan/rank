@@ -1,22 +1,23 @@
-// const mongoose = require('mongoose');
-// mongoose.Promise = global.Promise;
+module.exports = function(connection, DataTypes) {
+  const Article = connection.define('Article', {
+    id: {
+      type: DataTypes.INTEGER,
+      defaultValue: function() {
+        return generatMyID()
+      },
+      primaryKey: true
+    },
+    title: DataTypes.STRING,
+    author: DataTypes.STRING,
+    photo: DataTypes.STRING,
+    content: DataTypes.STRING,
+  });
 
+  return Article;
+}
 
-// const articleSchema = new mongoose.Schema({
-//     subject: {
-//         type: String,
-//         trim: true,
-//         required: ' Please enter an article name'
-//     },
-//     content: {
-//         type: String,
-//         trim: true,
-//         required: 'Article must have content'
-//     },
-//     created: {
-//         type: Date,
-//         default: Date.now
-//     },
-// });
-
-// module.exports = mongoose.model('Article', articleSchema);
+function generatMyID() {
+  let id = 0;
+  id ++;
+  return id;
+}

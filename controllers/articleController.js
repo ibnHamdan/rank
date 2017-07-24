@@ -1,4 +1,4 @@
-const db = require('../db');
+const models = require('../models');
 const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
@@ -42,20 +42,19 @@ exports.resize = async (req, res, next) => {
 
 
 exports.addArticle =   (req, res) => {
-    db.connection.query('insert into article set ?', req.body, function(err, result) {
-        if (err) {
-            console.error(err);
-            return;
-        }
-        console.log(result);
-    })
+    models.Article.create({
+        title: req.body.title,
+        author: req.body.author,
+        photo: req.body.photo,
+        content: req.body.content
+    });
     res.redirect('/');
 }
 
 exports.getArticle = (req, res) => {
-    db.connection.query('select * from article', function(err, result) {
-         res.render('index', {result});
-    });
+    // models.Article.findAll({}).then(function(articles){
+    //     res.render('index', {articles});
+    // });
    
-    //res.render('index');
+    res.render('index');
 }

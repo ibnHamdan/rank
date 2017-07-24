@@ -9,7 +9,7 @@ const flash = require('express-flash');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const exphbs = require('express-handlebars');
-const db = require('./db');
+const models = require('./models');
 
 
 // import envirnoment variables from .env file
@@ -17,7 +17,9 @@ dotenv.config({ path: '.env'});
 
 
 // connect to Database
-
+models.connection.sync().then(function() {
+    console.log('database sync')
+  });
 
 
 //Stat app
