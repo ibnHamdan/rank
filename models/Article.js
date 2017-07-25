@@ -2,9 +2,7 @@ module.exports = function(connection, DataTypes) {
   const Article = connection.define('Article', {
     id: {
       type: DataTypes.INTEGER,
-      defaultValue: function() {
-        return generatMyID()
-      },
+      autoIncrement: true,
       primaryKey: true
     },
     title: DataTypes.STRING,

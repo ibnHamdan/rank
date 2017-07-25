@@ -8,6 +8,7 @@ const connection = new sequlize("rank", "root", "a0540002507", {
   "dialect": "mysql",
   "host": "localhost",
   "port": "3333"
+  
 });
 
 const db = {};
