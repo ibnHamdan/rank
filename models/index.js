@@ -1,15 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const sequlize = require('sequelize');
-//const config = require(path.join(__dirname, '..','config.json'));
+const config = require(path.join(__dirname, '..','config.json'))["development"];
 
 
-const connection = new sequlize("rank", "root", "a0540002507", {
-  "dialect": "mysql",
-  "host": "localhost",
-  "port": "3333"
-  
-});
+const connection = new sequlize(config.database, config.username, config.password, config);
 
 const db = {};
 

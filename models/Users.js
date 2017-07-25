@@ -5,16 +5,9 @@ module.exports = function (connection, DataTypes) {
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    firstname: {
+    name: {
       type: DataTypes.STRING,
       notEmpty: true
-    },
-    lastname: {
-      type: DataTypes.STRING,
-      notEmpty: true
-    },
-    username: {
-      type: DataTypes.TEXT
     },
     email: {
       type: DataTypes.STRING,
