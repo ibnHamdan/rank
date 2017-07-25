@@ -52,9 +52,7 @@ exports.addArticle =   (req, res) => {
 }
 
 exports.getArticle = (req, res) => {
-    // models.Article.findAll({}).then(function(articles){
-    //     res.render('index', {articles});
-    // });
-   
-    res.render('index');
+    models.Article.findAll({}).then(function(articles){
+        res.render('index', {articles});
+    });
 }

@@ -9,27 +9,12 @@ const flash = require('express-flash');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const exphbs = require('express-handlebars');
-const models = require('./models');
+//const sequelize = require('sequelize');
+const passport = require('passport');
 
-
-// import envirnoment variables from .env file
-dotenv.config({ path: '.env'});
-
-
-// connect to Database
-models.connection.sync().then(function() {
-    console.log('database sync')
-  });
-
-
-//Stat app
 const app = express();
 
 app.set('port', process.env.PORT || 5555 );
-app.listen(app.get('port'), () => {
-  console.log('Express running → PORT 5555');
-});
-
 
 // view engine setup
 const hbs = exphbs.create({
@@ -51,21 +36,36 @@ app.use(expressValidator());
 // Sessions allow us to store data on visitors from request to request
 // This keeps users logged in and allows us to send flash messages
 app.use(session({
-    secret: process.env.SECRET,
-    key: process.env.KEY,
+    secret: 'rank',
     resave: false,
     saveUninitialized: false,
-    //store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
+app.use(passport.initialize());
+app.use(passport.session())
 
 // The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
 app.use(flash());
+
+
+//Models
+const models = require('./models');
 
 // After all that above middleware, , handle own routes!
 const routes = require('./routes/index');
 app.use('/', routes);
 
+require('./passport.js')(passport, models.User)
 
+//Sync Database
+models.connection.sync().then(function() {
+    console.log('Nice! Database looks fine')
+}).catch(function(err) {
+    console.log(err, "Something went wrong with the Database Update!")
+});
+
+app.listen(app.get('port'), () => {
+  console.log('Express running → PORT 5555');
+});
 
 module.exports = app;
 
