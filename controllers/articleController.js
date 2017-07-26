@@ -17,7 +17,7 @@ const multerOptions = {
 
 
 exports.index = (req, res) => {
-    res.render('index');
+    res.render('index', {title: 'RANK'});
 }
 
 exports.add = (req, res) => {
@@ -44,7 +44,7 @@ exports.resize = async (req, res, next) => {
 exports.addArticle =   (req, res) => {
     models.Article.create({
         title: req.body.title,
-        author: req.body.author,
+        author: req.user.id,
         photo: req.body.photo,
         content: req.body.content
     });

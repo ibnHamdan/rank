@@ -121,14 +121,26 @@
     <h1 class="title">
       Rank
     </h1>
+    
+    {{#if user}}
+      <h4>
+      {{user.email}}
+      </h4>
+    {{/if}}
 
   </div>
   <div class="menu-centered">
     <ul class="menu">
       <li><a href="/" class="page-link">Home</a></li>
       <li><a href="/add" class="page-link">Blog</a></li>
+      {{#if user}}
+      <li><a href="/dashboard" class="page-link">Dashboard</a></li>
+      <li><a href="/logout" class="page-link">Logout</a></li>
+      {{else}}
       <li><a href="/registe" class="page-link">Registe</a></li>
       <li><a href="/login" class="page-link">Login</a></li>
+      {{/if}}
+      
     </ul>
   </div>
 </header>

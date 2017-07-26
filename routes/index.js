@@ -20,6 +20,9 @@ router.post('/login', passport.authenticate('local-login', {
 
 router.get('/login', authorController.login);
 
+router.get('/logout', authorController.logout)
+
+
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();

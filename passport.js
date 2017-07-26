@@ -38,15 +38,15 @@ module.exports = function (passport, user) {
             {
               email: email,
               password: userPassword,
-              name: req.body.firstname,
+              name: req.body.name,
             };
           User.create(data).then(function (newUser, created) {
-            if (!newUser) {
-              return done(null, false);
-            }
             if (newUser) {
               return done(null, newUser);
+            }else {
+              return done(null, false);
             }
+            
           });
         }
       });

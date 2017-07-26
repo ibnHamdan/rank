@@ -9,12 +9,11 @@ const flash = require('express-flash');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const exphbs = require('express-handlebars');
-//const sequelize = require('sequelize');
 const passport = require('passport');
 
 const app = express();
 
-app.set('port', process.env.PORT || 5555 );
+app.set('port', 5555);
 
 // view engine setup
 const hbs = exphbs.create({
@@ -37,8 +36,9 @@ app.use(expressValidator());
 // This keeps users logged in and allows us to send flash messages
 app.use(session({
     secret: 'rank',
-    resave: false,
-    saveUninitialized: false,
+    username: 'usernam',
+    saveUninitialized: true,
+    resave: false
 }));
 app.use(passport.initialize());
 app.use(passport.session())
@@ -49,6 +49,11 @@ app.use(flash());
 
 //Models
 const models = require('./models');
+
+app.use((req,res, next) => {
+    res.locals.user = req.user || null;
+    next();
+})
 
 // After all that above middleware, , handle own routes!
 const routes = require('./routes/index');
@@ -63,9 +68,14 @@ models.connection.sync().then(function() {
     console.log(err, "Something went wrong with the Database Update!")
 });
 
-app.listen(app.get('port'), () => {
-  console.log('Express running → PORT 5555');
+
+
+
+const server = app.listen(app.get('port'), () => {
+  console.log(`Express running → PORT ${server.address().port}`);
 });
+
+
 
 module.exports = app;
 

@@ -6,7 +6,11 @@ module.exports = function(connection, DataTypes) {
       primaryKey: true
     },
     title: DataTypes.STRING,
-    author: DataTypes.STRING,
+    author: {
+      type: DataTypes.INTEGER,
+      references: "Users",
+      referenceKey: "id"
+    },
     photo: DataTypes.STRING,
     content: DataTypes.STRING,
   });

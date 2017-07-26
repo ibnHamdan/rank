@@ -6,15 +6,14 @@ exports.registe = (req, res) => {
 }
 
 exports.register = (req, res) => {
-  res.render('login')
+  res.render('login');
 }
 
 exports.login = (req, res) => {
-    res.render('/');
+    res.render('login');
 }
 
 exports.logout = (req, res) => {
-    req.session.dstroy(function(err) {
-        res.redirect('/');
-    });
-}
+    req.logout();
+    res.redirect('/');
+ }
