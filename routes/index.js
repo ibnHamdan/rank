@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const articleController = require('../controllers/articleController');
-const authorController = require('../controllers/authorController');
+const postController = require('../controllers/postController');
+const userController = require('../controllers/userController');
 const passport = require('passport');
 
-router.get('/', articleController.getArticle, articleController.index);
-router.get('/add',isLoggedIn, articleController.add);
-router.post('/add', articleController.upload, articleController.resize, articleController.addArticle);
+router.get('/', postController.getArticle, postController.index);
+router.get('/add',isLoggedIn, postController.add);
+router.post('/add', postController.upload, postController.resize, postController.addArticle);
 
-router.get('/registe', authorController.registe);
+router.get('/registe', userController.registe);
 router.post('/registe', passport.authenticate('local-registe', {
   successRedirect: '/login',
   failureRedirect: '/registe'
@@ -18,9 +18,12 @@ router.post('/login', passport.authenticate('local-login', {
   failureRedirect: '/login'
 }));
 
-router.get('/login', authorController.login);
+router.get('/login', userController.login);
 
-router.get('/logout', authorController.logout)
+router.get('/account', userController.update);
+router.post('/account', userController.updateAccount);
+
+router.get('/logout', userController.logout)
 
 
 function isLoggedIn(req, res, next) {

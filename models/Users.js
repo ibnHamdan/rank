@@ -1,31 +1,32 @@
-module.exports = function (connection, DataTypes) {
-  const User = connection.define('User', {
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('user', {
     id: {
-      autoIncrement: true,
+      type: DataTypes.UUID,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false
     },
     name: {
       type: DataTypes.STRING,
-      notEmpty: true
+      required: true
     },
     email: {
       type: DataTypes.STRING,
       validate: {
         isEmail: true
-      }
-    },
+    }},
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      required: true
     },
-    last_login: {
-      type: DataTypes.DATE
+    role: {
+      type: DataTypes.ENUM,
+      values: ['user', 'admin', 'disabled']
     },
-    status: {
-      type: DataTypes.ENUM('active', 'inactive'),
-      defaultValue: 'active'
-    }
-  });
+    created_at: DataTypes.DATE,
+    updated_at:  DataTypes.DATE,
+    deleted_at: DataTypes.DATE
+  }
+  );
   return User;
-}
+};
