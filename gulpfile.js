@@ -9,8 +9,7 @@ const babel = require('gulp-babel');
 gulp.task('browser-sync', () => {
     browserSync.init(null,{
         proxy: "http://localhost:5555",
-        port: 4444,
-        //notify: true
+        port: 3333
     });
 });
 

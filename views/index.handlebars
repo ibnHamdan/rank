@@ -1,5 +1,5 @@
 <div class="row">
-    {{#each result}}
+    {{#each posts}}
     <div class="small-6 medium-4 columns">
         <div class="article-card">
             <div class="article-image">
@@ -9,8 +9,8 @@
             <div class="aticle-section">
                 <div class="aticle-title">{{this.title}}</div>
                 <div class="article-info">
-                    <spna class="created">{{this.created}}</spna>
-                    <spna data-created="{{this.created}}"></spna>
+                    <spna class="">{{this.name}}</spna>
+                    {{!-- <spna data-created="{{this.created}}"></spna> --}}
                 </div>
                 <p class="article-content">{{this.content}}</p>
             </div>
@@ -33,22 +33,5 @@
         const [dayName, month, day, year, time, GMT, area] =node.innerText.split(' ');
         node.innerText = `${month} ${year}`;
     });
-
-
-    /*
-    // to add date of create from data-attribute
-
-    const dateCreated = [...document.querySelectorAll('[data-created]')];
-
-    const dateofCreate =dateCreated
-    .map(node => node.dataset.created)
-    .map(dateCode => {
-        const [dayName, month, day, year, time, GMT, area] =dateCode.split(' ');
-        return `${month} ${year}`;
-    });
-
-    */
-    
-
     
 </script>

@@ -6,6 +6,7 @@
     color: $white;
     text-align: center;
     background-color: lighten($primary-color, 10%);
+    margin-bottom: rem-calc(32);
 
      svg {
        width: rem-calc(250);
@@ -17,8 +18,6 @@
         line-height: rem-calc(45);
       }
       .menu-centered {
-        position: absolute;
-        bottom: 0;
         width: 100%;
         height: rem-calc(50);
         background: rgba($primary-color, 1);

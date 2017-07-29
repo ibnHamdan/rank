@@ -1,4 +1,4 @@
-const models = require('../models');
+const db = require('../config/db');
 const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
@@ -41,18 +41,37 @@ exports.resize = async (req, res, next) => {
 }
 
 
-exports.addArticle =   (req, res) => {
-    models.Article.create({
+exports.addArticle =   async (req, res) => {
+    await db.posts.create({
         title: req.body.title,
-        author: req.user.id,
+        user_id : req.user.id,
         photo: req.body.photo,
         content: req.body.content
     });
     res.redirect('/');
 }
 
+
 exports.getArticle = (req, res) => {
-    models.Article.findAll({}).then(function(articles){
-        res.render('index', {articles});
+    db.posts.findAll({}).then(function(posts){
+        res.render('index', {posts});
     });
 }
+// exports.getArticle = (req, res) => {
+//     db.posts.findAll().then(post => {
+//       const resObj = post.map(post => {
+//         //tidy up the user data
+//         return Object.assign(
+//           {},
+//           {
+//            post_id: post.id,
+//            user_id: post.user_id,
+//            title: post.title,
+//            content: post.content
+//           }
+//         )
+//       });
+//     //res.json(resObj)
+//     res.render('index', { resObj } );
+//     });
+//   };
