@@ -26,7 +26,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Takes the raw requests and turns them into usable properties on req.body
-app.use(bodyParser.json());
+app.use(bodyParser.json());``
 app.use(bodyParser.urlencoded({ extended: true}));
 
 // Exposes a bunch of methods for validating data.
@@ -48,7 +48,7 @@ app.use(flash());
 
 
 //Models
-const models = require('./models');
+const db = require('./config/db');
 
 app.use((req,res, next) => {
     res.locals.user = req.user || null;
@@ -59,21 +59,17 @@ app.use((req,res, next) => {
 const routes = require('./routes/index');
 app.use('/', routes);
 
-require('./passport.js')(passport, models.User)
+require('./config/passport.js')(passport, db.users)
 
-//Sync Database
-models.connection.sync().then(function() {
-    console.log('Nice! Database looks fine')
-}).catch(function(err) {
-    console.log(err, "Something went wrong with the Database Update!")
+db.sequelize.sync().then(() => {
+    app.listen(app.get('port'), ()=> {
+        console.log(`Express listening on port: ${app.get('port')}`);
+    });
 });
 
-
-
-
-const server = app.listen(app.get('port'), () => {
-  console.log(`Express running → PORT ${server.address().port}`);
-});
+// const server = app.listen(app.get('port'), () => {
+//   console.log(`Express running → PORT ${server.address().port}`);
+// });
 
 
 
