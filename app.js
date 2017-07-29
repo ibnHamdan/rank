@@ -9,31 +9,11 @@ const flash = require('express-flash');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const exphbs = require('express-handlebars');
-const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(session);
+const passport = require('passport');
 
-// import envirnoment variables from .env file
-dotenv.config({ path: '.env'});
-
-//connect to Database
-mongoose.connect(process.env.DATABASE);
-mongoose.Promise = global.Promise;
-mongoose.connection.on('error', (err) => {
-    console.error('Mongodb connection Error' + `${err.message}`);
-});
-
-//import all of models
-require('./models/Article');
-
-
-//Stat app
 const app = express();
 
-app.set('port', process.env.PORT || 5555 );
-app.listen(app.get('port'), () => {
-  console.log(`Express running → PORT 5555`);
-});
-
+app.set('port', 5555);
 
 // view engine setup
 const hbs = exphbs.create({
@@ -46,7 +26,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Takes the raw requests and turns them into usable properties on req.body
-app.use(bodyParser.json());
+app.use(bodyParser.json());``
 app.use(bodyParser.urlencoded({ extended: true}));
 
 // Exposes a bunch of methods for validating data.
@@ -55,19 +35,41 @@ app.use(expressValidator());
 // Sessions allow us to store data on visitors from request to request
 // This keeps users logged in and allows us to send flash messages
 app.use(session({
-    secret: process.env.SECRET,
-    key: process.env.KEY,
-    resave: false,
-    saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
+    secret: 'rank',
+    username: 'usernam',
+    saveUninitialized: true,
+    resave: false
 }));
+app.use(passport.initialize());
+app.use(passport.session())
 
 // The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
 app.use(flash());
 
+
+//Models
+const db = require('./config/db');
+
+app.use((req,res, next) => {
+    res.locals.user = req.user || null;
+    next();
+})
+
 // After all that above middleware, , handle own routes!
 const routes = require('./routes/index');
 app.use('/', routes);
+
+require('./config/passport.js')(passport, db.users)
+
+db.sequelize.sync().then(() => {
+    app.listen(app.get('port'), ()=> {
+        console.log(`Express listening on port: ${app.get('port')}`);
+    });
+});
+
+// const server = app.listen(app.get('port'), () => {
+//   console.log(`Express running → PORT ${server.address().port}`);
+// });
 
 
 

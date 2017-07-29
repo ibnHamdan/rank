@@ -6,19 +6,25 @@
     color: $white;
     text-align: center;
     background-color: lighten($primary-color, 10%);
+    margin-bottom: rem-calc(32);
+
+     svg {
+       width: rem-calc(250);
+       height: rem-calc(200);
+       margin-top: rem-calc(5);
+     }
       .title {
         vertical-align: middle;
-        line-height: rem-calc(250);
+        line-height: rem-calc(45);
       }
       .menu-centered {
-        position: absolute;
-        bottom: 0;
         width: 100%;
         height: rem-calc(50);
         background: rgba($primary-color, 1);
         li {
           &:hover {
-            background: rgba($white, 1);
+            border: 1px solid $white;
+            border-radius: 10px;
           }
         }
         a {

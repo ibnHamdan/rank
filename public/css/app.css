@@ -3833,18 +3833,22 @@ a.thumbnail {
   height: 18.75rem;
   color: #fefefe;
   text-align: center;
-  background-color: #3a434b; }
+  background-color: #3a434b;
+  margin-bottom: 2rem; }
+  .header svg {
+    width: 15.625rem;
+    height: 12.5rem;
+    margin-top: 0.3125rem; }
   .header .title {
     vertical-align: middle;
-    line-height: 15.625rem; }
+    line-height: 2.8125rem; }
   .header .menu-centered {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     height: 3.125rem;
     background: #24292e; }
     .header .menu-centered li:hover {
-      background: #fefefe; }
+      border: 1px solid #fefefe;
+      border-radius: 10px; }
     .header .menu-centered a {
       color: #fefefe;
       line-height: 1.5; }
