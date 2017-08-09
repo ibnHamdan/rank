@@ -1,0 +1,71 @@
+.post-card {
+  @include grid-col-row();
+  float: none !important;
+  margin: rem-calc(20 10);
+  border: solid 2px $dark-gray;
+  box-shadow: rem-calc(0 0 4 0) rgba(0,0,0,.2); 
+
+  .post-thumbnail{
+    display: block;
+    @include grid-col-row();
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .post-text {
+    @include grid-col-row();
+
+    .post-like {
+      color: $dark-gray;
+      font-size: rem-calc(14);
+    }
+    .like-icon {
+      display: inline-block;
+    }
+    .like-text {
+      display: inline-block;
+    }
+
+    .post-title {
+      font-size: rem-calc(20);
+      color: $black;
+    }
+
+    .post-summary {
+
+    }
+  }
+
+  .post-info {
+    @include grid-column($columns: 8);
+
+    .author {
+      @include grid-col-row();
+      color: $dark-gray;
+      .author-icon {
+        
+        font-size: rem-calc(24);
+        display: inline-block;
+      }
+      .author-name {
+        display: inline-block;
+      }
+
+    }
+  }
+  .post-actions {
+    @include grid-column($columns: 3);
+    color: $dark-gray;
+
+    .actions {
+      .action-icone {
+        display: inline-block;
+        color: $dark-gray;
+        font-size: rem-calc(24);
+      }
+    }
+  }
+}

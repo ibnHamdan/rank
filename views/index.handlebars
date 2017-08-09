@@ -1,24 +1,38 @@
 <div class="row">
     {{#each posts}}
-    <div class="small-6 medium-4 columns">
-        <div class="article-card">
-            <div class="article-image">
-                <img src="uploads/{{this.photo}}" alt="">
-                <span class="card-tag"></span>
+    <div class="small-4 large-3">
+        <div class="post-card">
+            <div class="post-thumbnail">
+                <a href="#"><img src="uploads/{{this.photo}}" alt=""></a>
             </div>
-            <div class="aticle-section">
-                <div class="aticle-title">{{this.title}}</div>
-                <div class="article-info">
-                    <spna class="">{{this.name}}</spna>
-                    {{!-- <spna data-created="{{this.created}}"></spna> --}}
+            <div class="post-text">
+                <div class="post-like">
+                    <sapn class="like-icon"></sapn>
+                    <span class="like-text">Liked by ibnHamdan and 3 others</span>
                 </div>
-                <p class="article-content">{{this.content}}</p>
+                <div class="post-title">
+                    <a href="#"><h3>{{this.title}} </h3></a>
+                </div>
+                <div class="post-summary">
+                    <p>{{this.content}}</p>
+                </div>
             </div>
-            <div class="card-action">
-                <i class="fa fa-heart-o"></i>
-            </div>
+            
+            <section class="post-info">
+                <span class="author">
+                    <span class="author-icon"></span>
+                    <span class="author-name">{{this.name}} ibnHamdan</span>
+                </span>
+            </section>
+            <section class="post-actions">
+                <span class="action">
+                    <span class="action-icon">add to read List</span>
+                </span>
+            </section>
+            
         </div>
     </div>
+
     {{/each}}
 </div>
 

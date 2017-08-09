@@ -66,6 +66,7 @@
 
 // my custom style
 @import "header";
+@import "post-card";
 
 @mixin foundation-everything($flex: false) {
   @if $flex {
