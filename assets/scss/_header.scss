@@ -2,7 +2,7 @@
   .header {
     position: relative;
     width: 100%;
-    height: rem-calc(300);
+    min-height: rem-calc(300);
     color: $white;
     text-align: center;
     background-color: lighten($primary-color, 10%);
