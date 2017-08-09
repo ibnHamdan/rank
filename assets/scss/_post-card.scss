@@ -1,71 +1,92 @@
 .post-card {
-  @include grid-col-row();
-  float: none !important;
-  margin: rem-calc(20 10);
-  border: solid 2px $dark-gray;
-  box-shadow: rem-calc(0 0 4 0) rgba(0,0,0,.2); 
+  @include grid-row();
+  //float: none !important;
+  margin: rem-calc(5 0);
+  border: solid 1px $medium-gray;
+  //box-shadow: rem-calc(0 0 4 0) rgba(0,0,0,.2);
+
 
   .post-thumbnail{
-    display: block;
-    @include grid-col-row();
+    //display: block;
+    @include grid-row();
 
     img {
       width: 100%;
-      height: auto;
+      max-height: rem-calc(135);
+      min-height: rem-calc(135);
     }
   }
 
   .post-text {
     @include grid-col-row();
+    margin-bottom: rem-calc(25);
+    max-height: rem-calc(150);
+    min-height: rem-calc(150);
+    text-align: center;
+    overflow: hidden;
 
     .post-like {
       color: $dark-gray;
-      font-size: rem-calc(14);
+      font-size: rem-calc(13);
+      margin-top: rem-calc(15);
     }
     .like-icon {
-      display: inline-block;
+      margin-right: rem-calc(5)
     }
     .like-text {
-      display: inline-block;
+      
     }
 
     .post-title {
-      font-size: rem-calc(20);
-      color: $black;
+      a h4{
+      color: get-color(primary) !important;
+      }
     }
 
     .post-summary {
+      font-size: rem-calc(13);
+      color: get-color(secondary)
 
     }
   }
 
+
   .post-info {
-    @include grid-column($columns: 8);
+    @include grid-column($columns: 10);
+    padding: rem-calc(0 5 0 10) !important;
+
 
     .author {
-      @include grid-col-row();
       color: $dark-gray;
-      .author-icon {
-        
-        font-size: rem-calc(24);
-        display: inline-block;
+      .author-thumnail {
+        img {
+          border-radius: 50%;
+          width: rem-calc(50);
+          height: rem-calc(50);
+          margin-right: rem-calc(7);
+          float: left;
+        }
       }
-      .author-name {
-        display: inline-block;
+      ul {
+        list-style: none;
+        li .author-name {
+          
+        }
+        li .post-date {
+          font-size: rem-calc(12);
+          text-align: center;
+        }
       }
 
     }
   }
   .post-actions {
-    @include grid-column($columns: 3);
+    @include grid-column($columns: 2);
     color: $dark-gray;
-
-    .actions {
-      .action-icone {
-        display: inline-block;
+    padding: rem-calc(10 0 0 0) !important;
+      .action-icon {
         color: $dark-gray;
-        font-size: rem-calc(24);
+        font-size: rem-calc(20);
       }
-    }
   }
 }

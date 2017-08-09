@@ -1,35 +1,42 @@
 <div class="row">
     {{#each posts}}
-    <div class="small-4 large-3">
+    <div class="small-6 large-3 columns">
         <div class="post-card">
             <div class="post-thumbnail">
                 <a href="#"><img src="uploads/{{this.photo}}" alt=""></a>
             </div>
             <div class="post-text">
                 <div class="post-like">
-                    <sapn class="like-icon"></sapn>
+                    <sapn class="like-icon"><i class="fa fa-heart-o"></i></sapn>
                     <span class="like-text">Liked by ibnHamdan and 3 others</span>
                 </div>
                 <div class="post-title">
-                    <a href="#"><h3>{{this.title}} </h3></a>
+                    <a href="#">
+                        <h4>{{this.title}} </h4>
+                    </a>
                 </div>
                 <div class="post-summary">
-                    <p>{{this.content}}</p>
+                    <span>{{this.content}}</span>
                 </div>
             </div>
-            
+
             <section class="post-info">
-                <span class="author">
-                    <span class="author-icon"></span>
-                    <span class="author-name">{{this.name}} ibnHamdan</span>
-                </span>
-            </section>
-            <section class="post-actions">
-                <span class="action">
-                    <span class="action-icon">add to read List</span>
-                </span>
-            </section>
-            
+                <div class="author">
+                    <a class="author-thumnail"><img src="./uploads/IMG_0418.jpg" alt="" /></a>
+                    <ul>
+                        <li><span class="author-name">{{this.name}} ibnHamdan</span></li>
+                        <li><span class="post-date">{{this.created_at}} ibnHamdan</span></li>
+                    </ul>
+
+                    </div>
+                    </section>
+                    
+                <section class="post-actions">
+
+                    <span class="action-icon"><i class="fa fa-bookmark-o"></i></span>
+                </section>
+
+
         </div>
     </div>
 
@@ -39,13 +46,13 @@
 
 
 <script>
-    const created = Array.from(document.querySelectorAll('.created'));
-    
-    const cretedDate =created
-    .map(function(node) {
-        //node.innerText;
-        const [dayName, month, day, year, time, GMT, area] =node.innerText.split(' ');
-        node.innerText = `${month} ${year}`;
-    });
-    
+    const created = Array.from(document.querySelectorAll('.post-date'));
+
+    const cretedDate = created
+        .map(function (node) {
+            //node.innerText;
+            const [dayName, month, day, year, time, GMT, area] = node.innerText.split(' ');
+            node.innerText = `${month} ${year}`;
+        });
+
 </script>
