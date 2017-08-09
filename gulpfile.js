@@ -19,10 +19,14 @@ gulp.task('sass', () => {
         .pipe(gulp.dest('./public/css'));
 });
 
+gulp.task('copy', () => {
+    return gulp.src('./bower_components/font-awesome/fonts/*')
+    .pipe(gulp.dest('./public/fonts'));
+})
 gulp.task('watch', () => {
     gulp.watch('./assets/scss/**/*.scss', ['sass', reload]);
     gulp.watch('./views/**/*.handlebars', reload);
 });
 
 
-gulp.task('default', ['browser-sync','sass', 'watch']);
+gulp.task('default', ['browser-sync','sass','copy', 'watch']);
