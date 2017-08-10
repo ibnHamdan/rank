@@ -45,6 +45,7 @@ exports.addArticle =   async (req, res) => {
     await db.posts.create({
         title: req.body.title,
         user_id : req.user.id,
+        author: req.user.name,
         photo: req.body.photo,
         content: req.body.content
     });

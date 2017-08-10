@@ -10,6 +10,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       allowNull: false
     },
+    author:{
+      type: DataTypes.STRING,
+      required: true,
+    },
     title: {
       type: DataTypes.STRING,
       required: true,
