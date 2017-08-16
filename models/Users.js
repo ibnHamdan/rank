@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       required: true
     },
+    photo: DataTypes.STRING,
     role: {
       type: DataTypes.ENUM,
       values: ['user', 'admin', 'disabled']

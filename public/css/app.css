@@ -2348,7 +2348,8 @@
   .post-card .post-thumbnail {
     max-width: 75rem;
     margin-right: auto;
-    margin-left: auto; }
+    margin-left: auto;
+    position: relative; }
     .post-card .post-thumbnail::before, .post-card .post-thumbnail::after {
       display: table;
       content: ' '; }
@@ -2358,6 +2359,11 @@
       width: 100%;
       max-height: 8.4375rem;
       min-height: 8.4375rem; }
+    .post-card .post-thumbnail .edit-icon {
+      color: #fefefe;
+      position: absolute;
+      top: 10px;
+      right: 10px; }
   .post-card .post-text {
     max-width: 75rem;
     margin-right: auto;
