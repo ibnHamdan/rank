@@ -70,7 +70,11 @@
 
 // my custom style
 @import "header";
+@import "index";
 @import "post-card";
+@import "rank-form";
+
+
 
 @mixin foundation-everything($flex: false) {
   @if $flex {

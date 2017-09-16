@@ -1,0 +1,70 @@
+.rank-form {
+  border-radius: 3px;
+  padding: 2rem;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.01);
+  background: #fff;
+}
+
+.rank-form {
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > * + * {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+
+    input {
+      flex-grow: 1;
+      box-sizing: border-box;
+      font-size: 1rem;
+      font-weight: 300;
+      display: block;
+      margin: 0;
+      border: none;
+      padding: 0.5em 0;
+      line-height: 1;
+      transition: border-color 0.2s;
+      box-shadow: none;
+      border-bottom: 1px solid hsl(0, 0%, 75%);
+      width: auto;
+
+      &:focus + .field-icon {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      &:valid {
+        border-bottom:1px solid green;
+
+      }
+      &:invaled {
+        border-bottom:1px solid red;
+      }
+    }
+
+
+  }
+  .field-icon {
+    width: 1rem;
+    order: -1;
+    opacity:-1;
+    transition: all 0.2s;
+    transform: translateX(-100%);
+    path {
+      d: path("M0 0 L10 10 L0 20");
+      stroke: black;
+      fill: none;
+      stroke-width: 1px;
+    }
+  }
+
+}

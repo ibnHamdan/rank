@@ -2334,6 +2334,11 @@
   overflow: visible;
   clip: auto; }
 
+.legend::after {
+  width: 100%;
+  height: 2px;
+  color: black; }
+
 .post-card {
   max-width: 75rem;
   margin-right: auto;
@@ -2442,6 +2447,58 @@
     .post-card .post-actions .action-icon {
       color: #8a8a8a;
       font-size: 1.25rem; }
+
+.rank-form {
+  border-radius: 3px;
+  padding: 2rem;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.01);
+  background: #fff; }
+
+.rank-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .rank-form form > * + * {
+    margin-top: 1.5rem; }
+
+.rank-form .field {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center; }
+  .rank-form .field input {
+    flex-grow: 1;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 300;
+    display: block;
+    margin: 0;
+    border: none;
+    padding: 0.5em 0;
+    line-height: 1;
+    transition: border-color 0.2s;
+    box-shadow: none;
+    border-bottom: 1px solid #bfbfbf;
+    width: auto; }
+    .rank-form .field input:focus + .field-icon {
+      transform: translateX(0);
+      opacity: 1; }
+    .rank-form .field input:valid {
+      border-bottom: 1px solid green; }
+    .rank-form .field input:invaled {
+      border-bottom: 1px solid red; }
+
+.rank-form .field-icon {
+  width: 1rem;
+  order: -1;
+  opacity: -1;
+  transition: all 0.2s;
+  transform: translateX(-100%); }
+  .rank-form .field-icon path {
+    d: path("M0 0 L10 10 L0 20");
+    stroke: black;
+    fill: none;
+    stroke-width: 1px; }
 
 /*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
 /* Document
@@ -6265,28 +6322,8 @@ a.thumbnail {
 .clearfix::after {
   clear: both; }
 
-.header {
-  position: relative;
-  width: 100%;
-  min-height: 18.75rem;
-  color: #fefefe;
-  text-align: center;
-  background-color: #3a434b;
+header .top-bar {
+  display: flex;
   margin-bottom: 2rem; }
-  .header svg {
-    width: 15.625rem;
-    height: 12.5rem;
-    margin-top: 0.3125rem; }
-  .header .title {
-    vertical-align: middle;
-    line-height: 2.8125rem; }
-  .header .menu-centered {
-    width: 100%;
-    height: 3.125rem;
-    background: #24292e; }
-    .header .menu-centered li:hover {
-      border: 1px solid #fefefe;
-      border-radius: 10px; }
-    .header .menu-centered a {
-      color: #fefefe;
-      line-height: 1.5; }
+  header .top-bar a.icon {
+    padding: 0; }

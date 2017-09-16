@@ -1,36 +1,11 @@
 @mixin header() {
-  .header {
-    position: relative;
-    width: 100%;
-    min-height: rem-calc(300);
-    color: $white;
-    text-align: center;
-    background-color: lighten($primary-color, 10%);
-    margin-bottom: rem-calc(32);
-
-     svg {
-       width: rem-calc(250);
-       height: rem-calc(200);
-       margin-top: rem-calc(5);
-     }
-      .title {
-        vertical-align: middle;
-        line-height: rem-calc(45);
+  header {
+    .top-bar {
+      display: flex;
+      margin-bottom: 2rem;
+      a.icon {
+        padding: 0;
       }
-      .menu-centered {
-        width: 100%;
-        height: rem-calc(50);
-        background: rgba($primary-color, 1);
-        li {
-          &:hover {
-            border: 1px solid $white;
-            border-radius: 10px;
-          }
-        }
-        a {
-          color: $white;
-          line-height: 1.5;
-          }
       }
+    }
   }
-}

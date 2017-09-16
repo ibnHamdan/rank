@@ -1,19 +1,41 @@
 <div class="row">
-    <div class="smll-6 centered columns">
+    <div class="medium-6 small-centered columns rank-form">
         <form id="registe" name="registe" method="post" action="registe">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="email" />
-        <label for="name">name</label>
-        <input name="name" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <label for="photo">Photo</label>
-        <input type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg">
-        <select name="role" id="role">
+            <h3>Registe</h3>
+            <div class="field">
+                <input class="text" name="email" type="email" required placeholder="Email Address" />
+                <svg viewBox="0 0 20 20" class="field-icon">
+                    <path></path>
+                </svg>
+            </div>
+
+            <div class="field">
+                <input name="name" type="text" placeholder="Name" required />
+                <svg viewBox="0 0 20 20" class="field-icon">
+                    <path></path>
+                </svg>
+            </div>
+
+            <div class="field">
+                <input name="password" type="password" placeholder="Password" required/>
+                <svg viewBox="0 0 20 20" class="field-icon">
+                    <path></path>
+                </svg>
+            </div>
+
+            <div class="field">
+
+                <input name="password" type="password" placeholder="Password-confirm" required/>
+                <svg viewBox="0 0 20 20" class="field-icon">
+                    <path></path>
+                </svg>
+            </div>
+
+        {{!-- <select name="role" id="role">
             <option value="admin" >admin</option>
             <option value="user" selected>user</option>
             <option value="diabled">disabled</option>
-        </select>
+        </select> --}}
         <input class="button" type="submit" value="Registe" />
     </form>
     </div>
