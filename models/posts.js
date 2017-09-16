@@ -10,10 +10,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       allowNull: false
     },
-    author:{
-      type: DataTypes.STRING,
-      required: true,
-    },
     title: {
       type: DataTypes.STRING,
       required: true,
@@ -24,7 +20,10 @@ module.exports = (sequelize, DataTypes) => {
       required: true
     }
   }, {
-    underscored: true
+    underscored: true,
+    freezeTableName: true,
+    charset: 'utf8',
+    collate: 'utf8_unicode_ci'
   });
   return Post;
 };

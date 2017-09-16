@@ -27,6 +27,11 @@ module.exports = (sequelize, DataTypes) => {
     created_at: DataTypes.DATE,
     updated_at:  DataTypes.DATE,
     deleted_at: DataTypes.DATE
+  },
+  {
+    freezeTableName: true,
+    charset: 'utf8',
+    collate: 'utf8_unicode_ci'
   }
   );
   return User;
