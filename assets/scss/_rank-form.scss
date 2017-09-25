@@ -22,7 +22,7 @@
     width: 100%;
     align-items: center;
 
-    input {
+    input, textarea {
       flex-grow: 1;
       box-sizing: border-box;
       font-size: 1rem;
@@ -50,6 +50,38 @@
         border-bottom:1px solid red;
       }
     }
+
+
+  }
+
+  .photo-field {
+    label.fa {
+      font-size: rem-calc(250px);
+      color: rgb(150, 150, 150);
+
+      &:hover {
+        cursor: pointer;
+        color: rgb(190, 190, 190);
+      }
+    }
+    #photo {
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+   }
+  }
+
+  .user-photo {
+    img {
+      border-radius: 50%;
+      width: rem-calc(250);
+      height: rem-calc(250);
+    }
+    #photo {
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+   }
 
 
   }

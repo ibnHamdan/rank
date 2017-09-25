@@ -1,6 +1,7 @@
 const db = require('../config/db');
 
 
+
 exports.registe = (req, res) => {
     res.render('registe');
 }
@@ -22,16 +23,17 @@ exports.logout = (req, res) => {
      res.render('account');
  }
 
- exports.updateAccount = (req, res) => {
-     db.users.update(
+ exports.updateAccount = async (req, res) => {
+    await db.users.update(
          {
              name: req.body.name,
-             email: req.body.email
+             email: req.body.email,
+             photo: req.body.photo
          },
             {
                 where: {id : req.user.id}
             }
      )
         res.redirect('back')
-    
+
  }

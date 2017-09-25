@@ -2466,7 +2466,7 @@
   flex-wrap: wrap;
   width: 100%;
   align-items: center; }
-  .rank-form .field input {
+  .rank-form .field input, .rank-form .field textarea {
     flex-grow: 1;
     box-sizing: border-box;
     font-size: 1rem;
@@ -2480,13 +2480,35 @@
     box-shadow: none;
     border-bottom: 1px solid #bfbfbf;
     width: auto; }
-    .rank-form .field input:focus + .field-icon {
+    .rank-form .field input:focus + .field-icon, .rank-form .field textarea:focus + .field-icon {
       transform: translateX(0);
       opacity: 1; }
-    .rank-form .field input:valid {
+    .rank-form .field input:valid, .rank-form .field textarea:valid {
       border-bottom: 1px solid green; }
-    .rank-form .field input:invaled {
+    .rank-form .field input:invaled, .rank-form .field textarea:invaled {
       border-bottom: 1px solid red; }
+
+.rank-form .photo-field label.fa {
+  font-size: 15.625rem;
+  color: #969696; }
+  .rank-form .photo-field label.fa:hover {
+    cursor: pointer;
+    color: #bebebe; }
+
+.rank-form .photo-field #photo {
+  opacity: 0;
+  position: absolute;
+  z-index: -1; }
+
+.rank-form .user-photo img {
+  border-radius: 50%;
+  width: 15.625rem;
+  height: 15.625rem; }
+
+.rank-form .user-photo #photo {
+  opacity: 0;
+  position: absolute;
+  z-index: -1; }
 
 .rank-form .field-icon {
   width: 1rem;
@@ -6323,7 +6345,14 @@ a.thumbnail {
   clear: both; }
 
 header .top-bar {
-  display: flex;
   margin-bottom: 2rem; }
-  header .top-bar a.icon {
-    padding: 0; }
+  header .top-bar ul {
+    list-style: none;
+    display: flex; }
+    header .top-bar ul li {
+      flex: 1; }
+    header .top-bar ul li.logo {
+      flex: 8 1; }
+    header .top-bar ul li.user-action {
+      display: flex;
+      justify-content: center; }

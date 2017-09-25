@@ -21,7 +21,7 @@ router.post('/login', passport.authenticate('local-login', {
 router.get('/login', userController.login);
 
 router.get('/account', userController.update);
-router.post('/account', userController.updateAccount);
+router.post('/account',postController.upload, postController.resize, userController.updateAccount);
 
 router.get('/logout', userController.logout)
 
@@ -30,7 +30,7 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
     res.redirect('/');
- 
+
 }
 
 module.exports = router;

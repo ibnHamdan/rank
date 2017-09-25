@@ -1,32 +1,22 @@
 <header class="header">
 
   <div class="top-bar">
-    <div class="top-bar-left">
-      <ul class="menu">
-        <li>
+      <ul class="">
+        <li class="logo">
           <a href="/" class="icon">
+          <i class="fa  fa-sign-out" ></i>
           </a>
         </li>
         <li> <a href="/add">Blog</a> </li>
-      </ul>
-    </div>
-    <div class="top-bar-right">
-      <ul class="dropdown menu" data-dropdown-menu>
-        <li>search</li>
-        <li>
+
           {{#if user}}
-          <a href="#">{{user.name}}</a>
-          <ul class="menu vertical">
-            <li><a href="#">profile</a></li>
-            <li><a href="#">Logout</a></li>
-          </ul>
+            <li class="user-action"><a href="/account"><i class="fa  fa-user" ><span>{{user.name}}</span></i></a></li>
+            <li class="user-action"><a href="#"><i class="fa  fa-sign-out" ></i></a></li>
           {{else}}
-          <a href="/login">Login</a>
-          <a href="/registe">Registe</a>
+          <li class="user-action"><a href="/login">Login</a></li>
+          <li class="user-action"><a href="/registe">Registe</a></li>
           {{/if}}
-        </li>
-      </ul>
-    </div>
+
   </div>
 </header>
 

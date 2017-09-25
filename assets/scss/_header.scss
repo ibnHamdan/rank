@@ -1,10 +1,26 @@
 @mixin header() {
   header {
     .top-bar {
-      display: flex;
       margin-bottom: 2rem;
-      a.icon {
-        padding: 0;
+      ul {
+        list-style: none;
+        display: flex;
+
+
+        li {
+          flex: 1;
+        }
+
+        li.logo {
+          flex: 8 1 ;
+        }
+
+        li.user-action {
+          display: flex;
+          justify-content: center;
+
+
+        }
       }
       }
     }
