@@ -15,7 +15,7 @@
                     <span class="like-text">Liked by ibnHamdan and 3 others</span>
                 </div>
                 <div class="post-title">
-                    <a href="#">
+                    <a href="post/{{this.id}}">
                         <h4>{{this.title}} </h4>
                     </a>
                 </div>
@@ -26,8 +26,8 @@
 
             <section class="post-info">
                 <div class="author">
-                    <a class="author-thumnail"><img src="" alt="" /></a>
-                    <span>{{}}</span>
+                    <a class="author-thumnail"><img src="uploads/{{this.user.photo}}" alt="" /></a>
+                    <span>{{this.user.name}}</span>
                     <ul>
                         <li><span class="author-name"></span></li>
                         <li><span class="post-date">{{this.created_at}}</span></li>

@@ -4,9 +4,13 @@ const postController = require('../controllers/postController');
 const userController = require('../controllers/userController');
 const passport = require('passport');
 
+router.get('/post/:id', postController.getPost);
+
 router.get('/', postController.getArticle, postController.index);
 router.get('/add',isLoggedIn, postController.add);
 router.post('/add', postController.upload, postController.resize, postController.addArticle);
+
+
 
 router.get('/registe', userController.registe);
 router.post('/registe', passport.authenticate('local-registe', {

@@ -54,9 +54,30 @@ exports.addArticle =   async (req, res) => {
 
 
 exports.getArticle = (req, res) => {
-    db.posts.findAll({}).then(function(posts){
+    db.posts.findAll({
+        include: [ db.users ]
+    })
+    .then(function(posts){
         res.render('index', {posts});
     });
+}
+
+// exports.getStoreBySlug = async (req, res, next) => {
+//     const store = await Store.findOne({ slug: req.params.slug }).populate('author reviews');
+//     if (!store) return next();
+//     res.render('store', { store, title: store.name });
+//   };
+
+exports.getPost = (req, res, next) => {
+    db.posts.findOne(
+        {
+             where: {id : req.params.id},
+             include: [ db.users ]
+            })
+            .then(function(post){
+                res.render('post', { post })
+    })
+
 }
 // exports.getArticle = (req, res) => {
 //     db.posts.findAll().then(post => {

@@ -5,6 +5,7 @@ const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
+const cleanCSS = require('gulp-clean-css');
 
 gulp.task('browser-sync', () => {
     browserSync.init(null,{
@@ -16,6 +17,7 @@ gulp.task('browser-sync', () => {
 gulp.task('sass', () => {
     return gulp.src('./assets/scss/app.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(cleanCSS())
         .pipe(gulp.dest('./public/css'));
 });
 
