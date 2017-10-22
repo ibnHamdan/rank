@@ -4,5 +4,17 @@
   justify-content: center;
 }
 .post-title {
-  font-family: sans-serif;
+
+}
+
+.post-info {
+  display: flex;
+
+  .post-author {
+    a.author-thumnail{
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
 }
