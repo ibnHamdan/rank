@@ -15,10 +15,16 @@ gulp.task('browser-sync', () => {
 });
 
 gulp.task('sass', () => {
-    return gulp.src('./assets/scss/app.scss')
+    return gulp.src('./assets/scss/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(cleanCSS())
         .pipe(gulp.dest('./public/css'));
+});
+
+gulp.task('javascript', () => {
+    return gulp.src('./assets/js/*.js')
+    .pipe(babel())
+    .pipe(gulp.dest('./public/js'));
 });
 
 gulp.task('copy', () => {
@@ -27,8 +33,9 @@ gulp.task('copy', () => {
 })
 gulp.task('watch', () => {
     gulp.watch('./assets/scss/**/*.scss', ['sass', reload]);
+    gulp.watch('./assets/js/**/*.js', ['javascript', reload]);
     gulp.watch('./views/**/*.handlebars', reload);
 });
 
 
-gulp.task('default', ['browser-sync','sass','copy', 'watch']);
+gulp.task('default', ['browser-sync','sass','javascript', 'copy', 'watch']);

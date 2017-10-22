@@ -39,6 +39,7 @@
     "validator": "7.0.0"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.6.0",
     "browser-sync": "^2.18.12",
     "concurrently": "^3.4.0",
     "connect-session-sequelize": "^4.1.0",
