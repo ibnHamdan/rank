@@ -5,4 +5,4 @@ bower_components/
 .idea
 .env
 des/
-public/css/
+public/css/*.css
