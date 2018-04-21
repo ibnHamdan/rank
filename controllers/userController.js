@@ -35,5 +35,13 @@ exports.logout = (req, res) => {
             }
      )
         res.redirect('back')
+ }
 
+ exports.dashboard = (req, res) => {
+    db.posts.findAll({
+        include: [ db.users ]
+    })
+    .then(function(posts){
+        res.render('dashboard', {posts});
+    });
  }
